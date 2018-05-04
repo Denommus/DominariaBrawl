@@ -2,6 +2,7 @@ require 'sinatra'
 require 'mtg_sdk'
 
 enable :sessions
+set :session_secret, ENV['SECRET']
 
 def get_card
   legendary_cards = MTG::Card.where(set: 'DOM').where(supertypes: 'Legendary').all.to_a
